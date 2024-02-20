@@ -14,7 +14,7 @@ commands:
       - restore_cache:
           key: cargo-cache-{{ arch }}-{{ checksum "Cargo.lock" }}
       - run:
-          name: "Install Rust and run cargo check"
+          name: "Install Rust, run cargo check"
           command: |
             $ProgressPreference = "SilentlyContinue"
             # Remove the circleci installed rustc.
@@ -42,7 +42,7 @@ commands:
           key: cargo-cache-{{ arch }}-{{ checksum "rust-version" }}-{{ checksum "Cargo.lock" }}
 
   setup_environment:
-    description: "Setup testing environment"
+    description: "Setup test environment"
     parameters:
       cache_key:
         type: string
